@@ -15,10 +15,10 @@ def scale(val, src, dst):
     return (float(val - src[0]) / (src[1] - src[0])) * (dst[1] - dst[0]) + dst[0]
 
 def scale_stick(value):
-    return scale(value,(0,255),(-1000,1000))
+    return scale(value,(0,255),(-500,500))
 
 def dc_clamp(value):
-    return clamp(value,-1000,1000)
+    return clamp(value,-500,500)
 
 ## Initializing ##
 print("Finding ps4 controller...")
