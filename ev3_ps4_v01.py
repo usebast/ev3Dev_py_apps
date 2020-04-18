@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+
 __author__ = 'Sebastiaans adaptations after a Artur Poznanski program.'
 ## also thanks for help to https://gist.github.com/Quantum357 ##
+
 ## Import libraries ##
 import evdev
 import ev3dev.auto as ev3
@@ -62,7 +64,7 @@ for event in gamepad.read_loop():   #this loops infinitely
         if event.code == 0:         #X axis on left stick
             forward_speed = -scale_stick(event.value)
         if event.code == 1:         #Y axis on left stick
-            side_speed = -scale_stick(event.value)
+            side_speed = scale_stick(event.value)
         if side_speed < 100 and side_speed > -100:
             side_speed = 0
         if forward_speed < 100 and forward_speed > -100:
@@ -85,4 +87,4 @@ for event in gamepad.read_loop():   #this loops infinitely
         print("X button is pressed. Stopping.")
         running = False
         time.sleep(0.5) # Wait for the motor thread to finish
-        break
+        break 
